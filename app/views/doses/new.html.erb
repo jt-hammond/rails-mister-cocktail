@@ -1,2 +1,32 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/doses/new.html.erb</p>
+<%= simple_form_for [@cocktail, @dose, @ingredients] do |f| %>
+  <%= f.input_field :description html_input {class: "input-field col s12" } %>
+  <%= f.input_field :cocktail %>
+  <%= f.input_field :ingredients, collection: @ingredients, label_method: @ingredients.map { |ing| ing.name }, value_method: @ingredients.map { |ing| ing.id }  html_input {} %>
+  <%= f.button :submit %>
+<% end %>
+
+<!-- <div class="container">
+  <div class="row">
+    <form class="col s12">
+      <p class="range-field">
+        <input type="range" id="test5" min="0" max="2" name="amt" />
+      </p>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">local_drink</i>
+        <input type="text" id="autocomplete-input" class="autocomplete" name="@dose.ingredient"
+        <label for="autocomplete-input">Ingredient</label>
+      </div>
+    </form>
+  </div>
+</div>
+ -->
+<!-- <script>
+  $('input.autocomplete').autocomplete({
+    data: @ingredients.name,
+    limit: 5, // The max amount of results that can be shown at once. Default: Infinity.
+    // onAutocomplete: function(val) {
+    //   @dose = val.name
+    // },
+  });
+</script>
+ -->
