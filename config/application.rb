@@ -30,4 +30,3 @@ module RailsMisterCocktail
   end
 end
 
-CLOUDINARY_URL: "CLOUDINARY_URL=cloudinary://935559991615766:lkpOzR9nr-2VdbMgZsYqya2aYo0@dszj1bebu"

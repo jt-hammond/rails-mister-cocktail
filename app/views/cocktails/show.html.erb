@@ -3,6 +3,8 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1><%= @cocktail.name %></h1>
 
+      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+
       <ul class="list-unstyled">
         <% @cocktail.doses.each do |dose| %>
           <li><%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %> : <%= dose.description %>
