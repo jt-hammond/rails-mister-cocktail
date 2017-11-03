@@ -1,14 +1,17 @@
 <main class="">
-    <div class="banner">
-      <div class="banner-content">
-        <h1>Drink more</h1>
-        <p>Alcohol should be free</p>
-        <%= link_to "New Cocktail", new_cocktail_path, {class: "waves-effect waves-light btn" }%>
-      </div>
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Drink more</h1>
+      <p>Alcohol should be free</p>
+      <%= link_to "New Cocktail", new_cocktail_path, {class: "waves-effect waves-light btn" }%>
     </div>
-<!--     <div class="container">
-      < @cocktails.each do |cocktail| %>
-        <= link_to cocktail.name, cocktail_path, {class: collection-item} %>
-      < end %>
-    </div> -->
+  </div>
+  <h1 class="text-center">Your cocktail list</h1>
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
