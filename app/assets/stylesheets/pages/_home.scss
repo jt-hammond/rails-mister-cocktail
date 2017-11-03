@@ -2,3 +2,18 @@
 .banner {
   background-image: linear-gradient(-225deg, rgba(0,101,101,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg')
 }
+
+.card_container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.card {
+  margin: 20px;
+}
+
+.title {
+  margin-top: 20px;
+}

@@ -1,22 +1,9 @@
-<div class="mdl-layout mdl-js-layout demo-layout-transparent">
-  <header class="mdl-layout__header demo-layout-transparent">
-    <div class="mdl-layout__header-row demo-layout-transparent"><!-- Title -->
-      <span><%= image_tag "party.png", {class: "mdl-layout-title icon"}%> </span>
-      <div class="mdl-layout-spacer demo-layout-transparent"></div>
-      <%= link_to "New Cocktail", new_cocktail_path, {class: "mdl-navigation__link" }%>
-      <%= link_to "All Cocktails", cocktails_path, {class: "mdl-navigation__link" } %>
-    </div>
-  </header>
-</div>
 
-<style>
-.demo-layout-transparent {
-  background: url('../assets/demos/transparent.jpg') center / cover;
-}
-.demo-layout-transparent .mdl-layout__header,
-.demo-layout-transparent .mdl-layout__drawer-button {
-  /* This background is dark, so we set text to white. Use 87% black instead if
-     your background is light. */
-  color: white;
-}
-</style>
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row"><!-- Title -->
+    <span class="mdl-layout-title"><%= link_to image_tag('cocktail-glass-with-lemon-slice.png', size: "30x30"), cocktails_path %></span>
+    <div class="mdl-layout-spacer"></div>
+    <button class="mdl-button mdl-js-button mdl-button--primary"><%= link_to "New Cocktail", new_cocktail_path %></button>
+    <button class="mdl-button mdl-js-button mdl-button--primary"><%= link_to "All Cocktails", cocktails_path %></button>
+  </div>
+</header>

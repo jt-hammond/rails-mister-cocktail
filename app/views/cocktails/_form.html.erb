@@ -1,6 +1,14 @@
 <%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name, placeholder: "Caesar" %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-<% end %>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <%= f.input :name, input_html: {class: "mdl-textfield__input"}, label_html: {class: 'mdl-textfield__label'}, label: "Cocktail Name" %>
+</div>
+<div class="mdl-grid mdl-grid--no-spacing">
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--bottom">
+     <%= f.input :photo, class: "mdl-button mdl-js-button mdl-js-ripple-effect" %>
+      <%= f.input :photo_cache, as: :hidden %>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--bottom">
+    <%= f.button :submit, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+  </div>
+  <% end %>
+</div>

@@ -65,3 +65,8 @@ gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
 gem "jquery-rails"
+
+
+# Debugging
+gem "better_errors"
+gem "binding_of_caller"

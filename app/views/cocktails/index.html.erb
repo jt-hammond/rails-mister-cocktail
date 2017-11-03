@@ -1,17 +1,30 @@
-<main class="">
+<div class="page-content">
   <div class="banner">
     <div class="banner-content">
-      <h1>Drink more</h1>
-      <p>Alcohol should be free</p>
-      <%= link_to "New Cocktail", new_cocktail_path, {class: "waves-effect waves-light btn" }%>
+      <h1>It's almost 5</h1>
+      <p>Come drink together</p>
+      <%= link_to "New Cocktail", new_cocktail_path, {class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" }%>
     </div>
   </div>
-  <h1 class="text-center">Your cocktail list</h1>
-  <div class="container">
-    <div class="row">
+  <div class="title mdl-layout-title col-xs-12 col-sm-8 col-sm-offset-2"
+  ><h1>Your cocktail list</h1></div>
+  <div class="mdl-layout__content col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="card_container field mdl-layout-spacer">
       <% @cocktails.each do |cocktail| %>
-        <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+        <div class=" card mdl-card mdl-shadow--2dp through mdl-shadow--16dp">
+          <div class="mdl-card__media">
+            <div class="demo-card-image__filename">
+              <%= image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
+            </div>
+          </div>
+          <div class="mdl-card__title">
+            <div class="mdl-card__title-text"><%= link_to cocktail.name, cocktail_path(cocktail) %>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
+
+

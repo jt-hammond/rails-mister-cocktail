@@ -1,34 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<div class="mdl-layout__content">
+  <div class="mdl-layout-spacer">
+    <div class="title mdl-layout-title col-xs-12 col-sm-6 col-sm-offset-3">
       <h1><%= @cocktail.name %></h1>
+    </div>
+    <div class="mdl-cell--middle field col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col mdl-cell--stretch mdl-cell--middle">
+          <div class="demo-card-image mdl-card mdl-shadow--4dp margin_top card_img">
+            <%= image_tag @cocktail.photo, height: 270, width: 350, crop: :fill %>
+          </div>
+        </div>
 
-      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+        <div class="mdl-cell mdl-cell--5-col mdl-cell--3-offset mdl-cell--top">
+          <h2 style="font-weight: lighter; font-size: 38px;">Add a Dose</h2>
+          <ul class="list-unstyled mdl-list">
+            <% @cocktail.doses.each do |dose| %>
+              <li class="mdl-list__item"><%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %> : <%= dose.description %>
+                <%= link_to "<i class='fa fa-close'></i>".html_safe, dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %></li>
+            <% end %>
+          </ul>
 
-      <ul class="list-unstyled">
-        <% @cocktail.doses.each do |dose| %>
-          <li><%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %> : <%= dose.description %>
-            <%= link_to "<i class='fa fa-close'></i>".html_safe, dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %></li>
-        <% end %>
-      </ul>
-
-      <h2 class="text-center">Add a Dose</h2>
-
-      <% if @dose.errors.any? %>
-        <ul>
-          <% @dose.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+          <% if @dose.errors.any? %>
+            <ul>
+              <% @dose.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
           <% end %>
-        </ul>
-      <% end %>
 
-      <%= simple_form_for([@cocktail, @dose]) do |f| %>
-        <%= f.input :description %>
-        <%= f.input :ingredient_id, collection: @ingredients %>
-        <%= f.submit class: "btn btn-primary" %>
-      <% end %>
-
-      <%= link_to 'Back', cocktails_path %>
+          <%= simple_form_for([@cocktail, @dose]) do |f| %>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= f.input :description, input_html: {class: "mdl-textfield__input"}, label_html: {class: 'mdl-textfield__label'}, label: "Description"%>
+          </div>
+          <%= f.input :ingredient_id, collection: @ingredients %>
+          <%= f.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent margin_top" %>
+        <% end %>
+        </div>
+      </div>
+      <button class="align-text-bottom mdl-button mdl-js-button mdl-button--primary"><%= link_to 'Back', cocktails_path %></button>
     </div>
   </div>
 </div>

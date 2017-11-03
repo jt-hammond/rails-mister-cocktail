@@ -1,8 +1,14 @@
-
-<h1>Cocktails featuring <%= @ingredient.name %>: </h1>
-
-<ul>
-  <% @ingredient.cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-  <% end %>
-</ul>
+<div class="mdl-layout__content">
+  <div class="mdl-layout-spacer">
+    <div class="title mdl-layout-title col-xs-12 col-sm-6 col-sm-offset-3">
+        <h1>Cocktails featuring <%= @ingredient.name %>: </h1>
+    </div>
+    <div class="mdl-cell--middle field col-xs-12 col-sm-6 col-sm-offset-3">
+      <ul class="list-unstyled mdl-list">
+        <% @ingredient.cocktails.each do |cocktail| %>
+          <li class="mdl-list__item"><h2><i class="fa fa-glass">  </i><%= link_to cocktail.name, cocktail_path(cocktail) %></h2></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
