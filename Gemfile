@@ -54,6 +54,8 @@ gem 'rails-controller-testing', group: [ :test ]
 
 gem 'json'
 gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 
 
